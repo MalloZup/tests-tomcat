@@ -1,0 +1,8 @@
+node          client
+repository    ${CHANNEL_SLENKINS_CLIENT}
+install       tests-tomcat-tests-client
+
+node          server
+repository    ${CHANNEL_SLENKINS_SERVER}
+install       tests-tomcat-tests-server
+
