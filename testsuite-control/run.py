@@ -194,7 +194,7 @@ def ssl_tomcat(server):
         keystore_path = '/tmp/'
         genkey = '''cd ;
         keytool -genkey -noprompt  -alias alias1  -dname "CN=mqttserver.ibm.com, OU=ID, O=IBM, L=Hursley, S=Hants, C=GB"  -keystore keystore  -storepass password  -keypass password
-        $JAVA_HOME/bin/keytool -genkey -noprompt  -alias tomcat  -dname \"CN=suse.dmaiocchi.com, OU=ID, O=SUSE, L=Hursley, S=Hants, C=DE\"  -keystore {0}keystore \\
+        $JAVA_HOME/bin/keytool -genkey -noprompt  -alias tomcat  -dname \"CN=foo, OU=ID, O=Gino, L=Hursley, S=Hants, C=DE\"  -keystore {0}keystore \\
          -storepass password  -keypass password '''.format(keystore_path)
 
         run_command(server, genkey, "fail genkey", "genkey OK!")
@@ -274,7 +274,6 @@ def wget_files(client, server):
    	 run_command(client, "wget http://{}:8080/docs/{}".format(server.ipaddr, web), "WEB-TEST-wget docs-pages FAIL", "web-TEST-wget {} OK!".format(web))
    
     # ** EXAMPLES tests **
-    # regression bug 975859. xml wrong format.
     examples = find_html_sites("/usr/share/tomcat/webapps/examples")
     journal.beginGroup("Test examples web-pages")
     for web_ex in examples.split() :
